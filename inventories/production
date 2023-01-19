@@ -1,0 +1,6 @@
+[developer_machines]
+x.x.x.x.x
+
+[kubernetes_worker_nodes]
+x.x.x.x.x
+x.x.x.x.x

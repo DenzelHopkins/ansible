@@ -1,0 +1,13 @@
+---
+- name: Install flatpak
+  ansible.builtin.apt:
+    name: flatpak
+    update_cache: yes
+
+- name: Add flatpak repository 
+  ansible.builtin.shell:
+    cmd: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+- name: Install gnome boxes
+  ansible.builtin.shell:
+    cmd: flatpak install flathub org.gnome.Boxes -y

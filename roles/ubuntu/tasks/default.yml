@@ -1,0 +1,10 @@
+---
+- name: Update repositories cache and install "build-essential" package
+  ansible.builtin.apt:
+    name: build-essential
+    update_cache: yes
+
+- name: Update repositories cache and install "git" package
+  ansible.builtin.apt:
+    name: git
+    update_cache: yes

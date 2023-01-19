@@ -1,0 +1,15 @@
+---
+- name: Run default.yml
+  ansible.builtin.include_tasks: default.yml
+
+- name: Run pyenv.yml
+  ansible.builtin.include_tasks: pyenv.yml
+
+- name: Run ansible.yml
+  ansible.builtin.include_tasks: ansible.yml
+
+- name: Run boxes.yml
+  ansible.builtin.include_tasks: boxes.yml
+
+- name: Run alacritty.yml
+  ansible.builtin.include_tasks: alacritty.yml

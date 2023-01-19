@@ -1,0 +1,5 @@
+---
+- name: Configure Ubuntu on developer machines
+  hosts: developer_machines
+  roles:
+    - ubuntu

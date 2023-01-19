@@ -1,0 +1,18 @@
+---
+- name: Install ansible
+  ansible.builtin.shell:
+    cmd: pip install --user ansible-core==2.14
+  args:
+    executable: /usr/bin/bash
+
+- name: Add env to ./bashrc and ./profile 
+  ansible.builtin.shell:
+    cmd: export PATH="$HOME/.local/bin:$PATH"
+  args:
+    executable: /usr/bin/bash
+
+- name: Install molecule
+  ansible.builtin.shell:
+    cmd: pip install molecule
+  args:
+    executable: /usr/bin/bash
