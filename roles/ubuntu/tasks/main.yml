@@ -13,3 +13,6 @@
 
 - name: Run alacritty.yml
   ansible.builtin.include_tasks: alacritty.yml
+
+- name: Run vue.yml
+  ansible.builtin.include_tasks: vue.yml

@@ -49,6 +49,12 @@
       command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
       eval "$(pyenv init -)"
 
+- name: Refresh .profile and .bashrc
+  ansible.builtin.shell:
+    cmd: | 
+      . ~/.profile
+      . ~/.bashrc
+
 - name: Install python
   ansible.builtin.shell:
     cmd: /root/.pyenv/bin/pyenv install 3.10.4

@@ -1,0 +1,29 @@
+---
+- name: Download node 
+  ansible.builtin.get_url:
+    url: https://nodejs.org/dist/v18.13.0/node-v18.13.0-linux-x64.tar.xz
+    dest: /tmp/node-v18.13.0-linux-x64.tar.xz
+
+- name: Unpack and archive node
+  ansible.builtin.shell:
+    cmd: |
+        mkdir -p /usr/local/lib/nodejs
+        tar -xJvf /tmp/node-v18.13.0-linux-x64.tar.xz -C /usr/local/lib/nodejs 
+
+- name: Add env to .bashrc 
+  ansible.builtin.blockinfile: 
+    path: $HOME/.bashrc 
+    block: |
+      export PATH=/usr/local/lib/nodejs/node-v18.13.0-linux-x64/bin:$PATH
+
+- name: Add env to .profile 
+  ansible.builtin.blockinfile: 
+    path: $HOME/.profile 
+    block: |
+      export PATH=/usr/local/lib/nodejs/node-v18.13.0-linux-x64/bin:$PATH
+
+- name: Refresh .profile and .bashrc
+  ansible.builtin.shell:
+    cmd: | 
+      . ~/.profile
+      . ~/.bashrc
