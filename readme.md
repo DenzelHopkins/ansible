@@ -4,3 +4,7 @@
 
 ### Run ubuntu playbook for inventory staging
 > ansible-playbook -i inventories/staging ubuntu.yml
+
+
+toDo:
+- fix versions of programs

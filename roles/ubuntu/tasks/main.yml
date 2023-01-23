@@ -16,3 +16,6 @@
 
 - name: Run vue.yml
   ansible.builtin.include_tasks: vue.yml
+
+- name: Run kotlin.yml
+  ansible.builtin.include_tasks: kotlin.yml

@@ -1,0 +1,21 @@
+---
+- name: Download Java 
+  ansible.builtin.get_url:
+    url: https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.deb
+    dest: /tmp/jdk-19_linux-x64_bin.deb
+
+- name: Install Java
+  ansible.builtin.shell:
+    cmd: apt -qqy install /tmp/jdk-19_linux-x64_bin.deb
+
+- name: Update Java env
+  ansible.builtin.shell:
+    cmd: update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-19/bin/java 1919
+
+- name: Install Maven
+  ansible.builtin.shell:
+    cmd: echo "maven"
+
+- name: Install Kotlin IDE
+  ansible.builtin.shell:
+    cmd: snap install intellij-idea-community --classic
