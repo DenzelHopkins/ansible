@@ -16,3 +16,9 @@
     cmd: pip install molecule
   args:
     executable: /usr/bin/bash
+
+- name: Add docker token to .bashrc 
+  ansible.builtin.blockinfile: 
+    path: $HOME/.bashrc 
+    cmd: export ANSIBLE_VAULT_PASSWORD_FILE=./.vault_pass
+  

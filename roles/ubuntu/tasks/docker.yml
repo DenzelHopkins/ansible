@@ -1,0 +1,11 @@
+---
+- name: Install docker
+  ansible.builtin.apt:
+    name: docker
+    update_cache: yes
+
+- name: Add docker token to .bashrc 
+  ansible.builtin.blockinfile: 
+    path: $HOME/.bashrc 
+    block: |
+      export CR_PAT="{{ github_token }}"
